@@ -1,0 +1,14 @@
+from ecdsa.numbertheory import inverse_mod
+
+n = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141
+
+r = int(input("Enter r: "), 16)
+s1 = int(input("Enter s1: "), 16)
+s2 = int(input("Enter s2: "), 16)
+z1 = int(input("Enter z1: "), 16)
+z2 = int(input("Enter z2: "), 16)
+
+k = (((z1 - z2) % n) * inverse_mod(s1 - s2, n)) % n
+d_A = (((s1 * k) - z1) * inverse_mod(r, n)) % n
+
+print(f"Recovered private key: {d_A:x}")
