@@ -11,4 +11,4 @@ z2 = int(input("Enter z2: "), 16)
 k = (((z1 - z2) % n) * inverse_mod(s1 - s2, n)) % n
 d_A = (((s1 * k) - z1) * inverse_mod(r, n)) % n
 
-print(f"Recovered private key: {d_A:x}")
+print(f"Private Key: {d_A:x}")
